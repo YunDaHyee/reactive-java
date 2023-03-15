@@ -12,10 +12,13 @@ public class StreamDemo01 {
                 new Order(3, "park", "galaxy", 8000)
         );
 
-        double average = orderList.stream()
-                .filter(p -> p.getPrice() >= 10000)
-                //.filter(p -> p.getOrderPerson().equals("kim"))
-                .mapToInt(p -> p.getPrice())
+        // filtering, mapping, reducing
+
+        // 주문데이터에서 가격이 만불이상이고 주문자 이름이 kim인 주문의 평균 가격을 구하세요.
+        double kim = orderList.stream()
+                .filter(p -> p.getPrice() >= 10000)  // Stream<Order>
+                .filter(p -> p.getOrderPerson().equals("kim"))  // Stream<Order>
+                .mapToInt(p -> p.getPrice())  // cf. IntStream vs. Stream<Integer>
                 .average()
                 .orElse(0);
 
