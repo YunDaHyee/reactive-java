@@ -19,7 +19,11 @@ public class RxJavaDemo02 {
         Observable.fromIterable(stringList)  // Observable<String>
                 .filter(item -> item.length() >= 4)
                 .map(item -> item.toUpperCase())
-                .subscribe(item -> System.out.println(item));
+                .take(100)
+                .subscribe(
+                        item -> System.out.println(item),
+                        err -> System.out.println(err),
+                        () -> System.out.println("데이터 전송 완료.."));
 
 
         // 기존 방식.. 글자수가 4글자 이상인 데이터를 대문자로 변경해서 화면에 출력한다.

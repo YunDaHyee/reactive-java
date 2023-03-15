@@ -14,12 +14,19 @@ public class RxJavaDemo03 {
 }
 
 class MyObserver implements Observer<String> {
+    private Disposable disposable;
     @Override
     public void onSubscribe(@NonNull Disposable d) {
+        this.disposable = d;
         System.out.println("데이터 구독 합니다.");
     }
     @Override
     public void onNext(@NonNull String s) {
+        if (s.equals("c")) {
+            disposable.dispose();
+            System.out.println("구독취소");
+            return;
+        }
         System.out.println("데이터 사용 : " + s);
     }
     @Override
