@@ -86,3 +86,25 @@ Reactor Core : Reactive Stream.. 8 이상에서만 동작.
 리액티브방식으로 쓰려면 webFlux
 과거의 방식으로 스려면 SpringMvc
 
+=====
+
+8/18
+
+# Reactor
+- Spring이 RxJava 이후에 만든, RxJava를 근본으로 만든 최신 라이브러리.
+- RxJava보다 연산자가 풍부하다.
+- Spring 깔면 내장 되어있어서 따로 안깔아도 되긴 함.
+	Spring에서 써야함. 별도로 쓸 일은 없을 것이다. (스프링에서 reactive 프로그래밍응ㄹ 해야한다.)
+- 메뉴얼 잘 보기
+
+## Flux
+RxJava의 Observerble 같은 것.
+데이터 많이 갖고 잇느 ㄴ것.
+- MathFlux : 수학연산 관련된 연산자를 가진 클래스
+
+## Mono
+하나의 데이터를 처리할 수 있는 것.
+하나 또는 제로.
+
+데이터에 대해 어플리케이션에도 일부적으로 쿼리같이 처리할 수 잇어야 한다는 관점
+
